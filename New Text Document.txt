@@ -1,0 +1,47 @@
+投影片連結：https://docs.google.com/presentation/d/1k2IRBHqJXippPxNMP8LHIUvfsCHfe-4j/edit?usp=sharing&ouid=104573250936900069298&rtpof=true&sd=true
+
+在ros driver安裝部分，如果是使用ubuntu 18.04以及20.04的同學，需要build source code來進行安裝
+
+1. pip uninstall tellopy (如果先前有安裝過tellopy，因為版本關係需要先解除安裝)
+
+2. mkdir -p ~/catkin_ws/src
+
+3. cd ~/catkin_ws/src
+
+4. git clone --recursive https://github.com/appie-17/tello_driver.git
+
+5. cd ..(回到catkin_ws底下)
+
+6. rosdep install --from-paths src --ignore-src -r -y
+
+7. catkin_make
+
+8. echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc source 
+
+9. ~/.bashrc
+
+執行完上列步驟就可以試試看使用
+
+roslaunch tello_driver tello_node.launch來與tello進行連線
+
+如果在catkin_make途中有遇到類似下面問題：
+
+camera_info_manager_pyConfig.cmake
+camera_info_manager_py-config.cmake
+Add the installation prefix of "camera_info_manager_py" to
+CMAKE_PREFIX_PATH or set "camera_info_manager_py_DIR" to a directory...
+
+18.04以下的版本可以透過apt的方式安裝，要注意對應版本
+
+ 如 > sudo apt-get install ros-"melodic"-camera-info-manager-py
+
+20.04的話則需要將缺少的套件從github上載下來編譯，接著再回去編譯tello_driver，
+
+以上述為例，camera_info_manager_py的github網址為：https://github.com/ros-perception/camera_info_manager_py
+
+至~/catkin_ws/src資料夾底下，並透過git clone的方式載下來，接著回到~/catkin_ws/底下透過catkin_make的方式進行編譯。
+
+起飛: rostopic pub --once /tello/takeoff std_msgs/Empty {}
+降落: rostopic pub --once /tello/land std_msgs/Empty {}
+
+使用ubuntu 22.04、windows 10、macOS 的同學，建議你們直接壓縮一部分電腦空間出來裝ubuntu 18.04。沒辦法切的請自行google尋找可用的docker image(Ubuntu18.04、tello driver)或是conda(RobotStack)，但出問題請自行找發行者解決。如果是想用VM的話建議筆電先有RAM16Gb以上，不然跑起來會不順，安裝完後，記憶體的部分改成調整所有....(第一個)，網路請改橋接，並在進階設定部分流量改成無限制，優先級改高。
