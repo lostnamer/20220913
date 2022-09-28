@@ -1,3 +1,5 @@
+https://raw.githubusercontent.com/ros/rosdistro/master/index-v4.yaml
+
 投影片連結：https://docs.google.com/presentation/d/1k2IRBHqJXippPxNMP8LHIUvfsCHfe-4j/edit?usp=sharing&ouid=104573250936900069298&rtpof=true&sd=true
 
 在ros driver安裝部分，如果是使用ubuntu 18.04以及20.04的同學，需要build source code來進行安裝
