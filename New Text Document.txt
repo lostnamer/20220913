@@ -1,3 +1,5 @@
+https://jcp7mfd4vr.bygcloud.com/api/v1/client/subscribe?token=c4957ea4dbc6d6fcc761f1858f73bf41
+
 https://raw.githubusercontent.com/ros/rosdistro/master/index-v4.yaml
 
 投影片連結：https://docs.google.com/presentation/d/1k2IRBHqJXippPxNMP8LHIUvfsCHfe-4j/edit?usp=sharing&ouid=104573250936900069298&rtpof=true&sd=true
